@@ -1,0 +1,30 @@
+{
+  "name": "pizza-express",
+  "version": "1.0.0",
+  "description": "Love me pizza",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slotaj/pizza-party.git"
+  },
+  "keywords": [
+    "pizza",
+    "sexy",
+    "pizza"
+  ],
+  "author": "John Slota",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slotaj/pizza-party/issues"
+  },
+  "homepage": "https://github.com/slotaj/pizza-party#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
+}
