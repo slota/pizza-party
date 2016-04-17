@@ -29,6 +29,12 @@ app.post('/pizzas', (request, response) => {
   response.sendStatus(201);
 });
 
+app.get('/pizzas/:id', (request, response) => {
+  var pizza = app.locals.pizzas[request.params.id];
+
+  response.render('pizza', { pizza: pizza });
+});
+
 app.locals.pizzas = {};
 
 if (!module.parent) {
