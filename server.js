@@ -22,11 +22,15 @@ app.get('/', (request, response) => {
 });
 
 app.post('/pizzas', (request, response) => {
-  var id = generateId();
+  if (!request.body.pizza) { return response.sendStatus(400); }
 
-  app.locals.pizzas[id] = request.body;
+  var randomInt = require('random-int');
 
-  response.sendStatus(201);
+  id = randomInt(10);
+  
+  app.locals.pizzas[id] = request.body.pizza;
+
+  response.redirect("/pizzas/" + id);
 });
 
 app.get('/pizzas/:id', (request, response) => {
