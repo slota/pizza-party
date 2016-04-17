@@ -78,6 +78,7 @@ describe('Server', () => {
 
   describe('GET /pizzas/:id', () => {
 
+
     beforeEach(() => {
       app.locals.pizzas.testPizza = fixtures.validPizza;
     });
@@ -97,6 +98,18 @@ describe('Server', () => {
         if (error) { done(error); }
         assert(response.body.includes(pizza.name),
         `"${response.body}" does not include "${pizza.name}".`);
+        done();
+      });
+    });
+
+    it('should return a page that has the ingredients of the pizza', (done) => {
+      var pizza = app.locals.pizzas.testPizza;
+
+      this.request.get('/pizzas/testPizza', (error, response) => {
+        if (error) { done(error); }
+        console.log(response.body.includes(pizza.toppings))
+        assert(response.body.includes(pizza.toppings),
+        `"${response.body}" does not include "${pizza.toppings}".`);
         done();
       });
     });
